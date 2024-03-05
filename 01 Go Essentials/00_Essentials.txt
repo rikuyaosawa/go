@@ -1,0 +1,17 @@
+Official Go Doc: https://go.dev/doc/
+
+Rules
+
+- double qutes
+
+
+Packages
+- package main : tells Go which one is main module 
+- fmt : one of many go packages that holds many helpful functions such as Print
+
+Functions
+- main() - tells Go where the execution starts 
+
+- fmt.Print - console log
+
+
