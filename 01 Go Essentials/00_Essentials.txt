@@ -1,22 +1,33 @@
 Official Go Doc: https://go.dev/doc/
 
-Rules
+*****Go Rules*****
 
-- double qutes
+- double qutes ""
+- := keyword : used when declaring a variable where the type should be inferred by Go
+	example using := keyword:
+		helloWorld := "Hello World"
+	example using = keyword:
+		var helloWorld string = "Hello World"
 
 
-Packages
+
+*****Packages*****
 - package main : tells Go which one is main module
-- fmt : one of many go packages that holds many helpful functions such as Print
+- fmt (the Format package): one of many go packages that holds many helpful functions such as Print
 - math
 
-Functions
+
+*****Functions******
 - main() - tells Go where the execution starts
 
 - fmt.Print() - console log
+- fmt.Scan() - scans for user input on terminal
+	- pointer (&) - points to a variable for storing user input
+	*Limitations - Can't take multiple words input.
 - math.Pow() - power ** in other languages
 
-Go Types & Null Values
+
+*****Go Types & Null Values*****
 - Basic Types
 
  - Go comes with a couple of built-in basic types:
@@ -47,20 +58,24 @@ Go Types & Null Values
 
     There also are more types like int8 or uint8 which work in the same way (=> integer with smaller number range)
 
-Null Values
+- Null Values
 
-- All Go value types come with a so-called "null value" which is the value stored in a variable if no other value is explicitly set.
+  - All Go value types come with a so-called "null value" which is the value stored in a variable if no other value is explicitly set.
 
-- For example, the following int variable would have a default value of 0 (because 0 is the null value of int, int32 etc):
+  - For example, the following int variable would have a default value of 0 (because 0 is the null value of int, int32 etc):
 
     var age int // age is 0
 
-Here's a list of the null values for the different types:
+- Here's a list of the null values for the different types:
 
     int => 0
 
     float64 => 0.0
-
     string => "" (i.e., an empty string)
 
     bool => false
+
+
+*****
+
+
