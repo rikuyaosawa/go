@@ -8,7 +8,7 @@ Official Go Doc: https://go.dev/doc/
 		helloWorld := "Hello World"
 	example using = keyword:
 		var helloWorld string = "Hello World"
-
+- func - defining functions
 
 
 *****Packages*****
