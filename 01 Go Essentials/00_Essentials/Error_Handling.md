@@ -18,3 +18,5 @@ func getBalanceFromFile() float64 {
 	return balance
 }
 ```
+
+- panic("message") method: exit out of program
