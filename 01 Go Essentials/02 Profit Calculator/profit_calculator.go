@@ -1,31 +1,57 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"os"
+)
+
+const profitFile string = "result.txt"
 
 func main() {
-	var revenue, expenses, taxRate float64
-
 	fmt.Print("Revenue: ")
-	fmt.Scan(&revenue)
+	revenue, err := getInput()
+	if err != nil {
+		panic(err)
+	}
+
 	fmt.Print("Expenses: ")
-	fmt.Scan(&expenses)
+	expenses, err := getInput()
+	if err != nil {
+		panic(err)
+	}
+
 	fmt.Print("Tax Rate: ")
-	fmt.Scan(&taxRate)
+	taxRate, err := getInput()
+	if err != nil {
+		panic(err)
+	}
 
 	ebt, profit, ratio := calculate(revenue, expenses, taxRate)
 
 	fmt.Println("EBT:", ebt)
 	fmt.Println("Profit:", profit)
 	fmt.Printf("Ratio: %.3f", ratio)
+	writeProfitToFile(profit)
 }
 
-func calculate(
-	revenue,
-	expenses,
-	taxRate float64,
-) (float64, float64, float64) {
+func getInput() (float64, error) {
+	var inputText float64
+	fmt.Scan(&inputText)
+	if inputText <= 0 {
+		return 0, errors.New("0 or negative values are unacceptable")
+	}
+	return inputText, nil
+}
+
+func calculate(revenue, expenses, taxRate float64) (float64, float64, float64) {
 	ebt := revenue - expenses
 	profit := ebt * (1 - taxRate/100)
 	ratio := ebt / profit
 	return ebt, profit, ratio
+}
+
+func writeProfitToFile(profit float64) {
+	profitText := fmt.Sprint(profit)
+	os.WriteFile(profitFile, []byte(profitText), 0o644)
 }
