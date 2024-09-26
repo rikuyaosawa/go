@@ -1,7 +1,6 @@
-Official Go Doc: [https://go.dev/doc/](https://go.dev/doc/)
-
 ## General Rules
 
+<br>
 - double qutes ""
 - := keyword : used when declaring a variable where the type should be inferred by Go
   - example using `:=` keyword:
