@@ -6,10 +6,24 @@ import (
 )
 
 type user struct {
+	// fields
 	firstName string
 	lastName  string
 	birthdate string
 	createdAt time.Time
+}
+
+func (u user) sayHi() {
+	fmt.Println("Hello! I am", u.firstName)
+}
+
+func (u *user) clearUser() {
+	u.firstName = ""
+	u.lastName = ""
+}
+
+func (u user) outputUserDetails() {
+	fmt.Println(u.firstName, u.lastName, u.birthdate, u.createdAt)
 }
 
 func main() {
@@ -24,12 +38,9 @@ func main() {
 		createdAt: time.Now(),
 	}
 
-	fmt.Println("Hi, my name is", appUser.firstName)
-	outputUserDetails(&appUser)
-}
-
-func outputUserDetails(u *user) {
-	fmt.Println(u.firstName, u.lastName, u.birthdate, u.createdAt)
+	appUser.sayHi()
+	appUser.clearUser()
+	appUser.outputUserDetails()
 }
 
 func getUserData(promptText string) string {
