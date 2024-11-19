@@ -18,6 +18,6 @@ func (e Event) Save() {
 	events = append(events, e)
 }
 
-func getAllEvents() []Event {
+func GetAllEvents() []Event {
 	return events
 }
